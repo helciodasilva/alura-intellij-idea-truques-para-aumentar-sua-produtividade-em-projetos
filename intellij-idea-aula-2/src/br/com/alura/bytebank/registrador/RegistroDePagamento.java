@@ -8,30 +8,30 @@ import java.util.List;
 
 public class RegistroDePagamento {
 
-    private final static List<Pagamento> psr = new ArrayList<>();
+    private final static List<Pagamento> PAGAMENTOS = new ArrayList<>();
 
-    public void registra(List<Pagamento> ps) {
-        for (int i = 0; i < ps.size(); i++) {
-            Pagamento p = ps.get(i);
-            if (p.getTipo().equals(Tipo.CREDITO)) {
-                p.setValor(p.getValor() * 1.02);
-                psr.add(p);
-                System.out.println("Pagamento realizado " + p);
+    public void registra(List<Pagamento> pagamentos) {
+        for (int i = 0; i < pagamentos.size(); i++) {
+            Pagamento pagamento = pagamentos.get(i);
+            if (pagamento.getTipo().equals(Tipo.CREDITO)) {
+                pagamento.setValor(pagamento.getValor() * 1.02);
+                PAGAMENTOS.add(pagamento);
+                System.out.println("Pagamento realizado " + pagamento);
             }
-            if (p.getTipo().equals(Tipo.DEBITO)) {
-                p.setValor(p.getValor() * 1.001);
-                psr.add(p);
-                System.out.println("Pagamento realizado " + p);
+            if (pagamento.getTipo().equals(Tipo.DEBITO)) {
+                pagamento.setValor(pagamento.getValor() * 1.001);
+                PAGAMENTOS.add(pagamento);
+                System.out.println("Pagamento realizado " + pagamento);
             }
-            if (p.getTipo().equals(Tipo.DINHEIRO)) {
-                psr.add(p);
-                System.out.println("Pagamento realizado " + p);
+            if (pagamento.getTipo().equals(Tipo.DINHEIRO)) {
+                PAGAMENTOS.add(pagamento);
+                System.out.println("Pagamento realizado " + pagamento);
             }
         }
-        if (!psr.isEmpty()) {
+        if (!PAGAMENTOS.isEmpty()) {
             System.out.println("Todos os pagamentos");
-            for (int i = 0; i < psr.size(); i++) {
-                System.out.println(psr.get(i));
+            for (int i = 0; i < PAGAMENTOS.size(); i++) {
+                System.out.println(PAGAMENTOS.get(i));
             }
         } else {
             System.out.println("Não temos pagamentos");
